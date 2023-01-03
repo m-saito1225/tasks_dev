@@ -130,22 +130,6 @@
 				</div>
 				{{Form::close()}}
 			</div>
-			<div class="flex">
-				<div class="col-sm-12 col-md-8">
-					<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-						<div class="p-6 bg-white border-b border-gray-200">
-							保留中
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-						<div class="p-6 bg-white border-b border-gray-200">
-							<div class="TopMessage text-center">ここは予備で　それか明日以降のものを出力するか検討中</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </x-app-layout>

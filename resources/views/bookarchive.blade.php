@@ -21,6 +21,7 @@
 				@endif
 				<h2 class="">読書一覧</h2>
 			</div>
+			<h2 class="text-center mt-5 error-message">読書感想を書き溜めていきます。新規登録できますが、まだ構築中です。</h2>
 			<div class="flex">
 				<div class="col-sm-12 col-md-12">
 					@if ($errors->any())
@@ -42,9 +43,15 @@
 							</p>
 							<div class="row">
 								@foreach($books as $key => $value)
-								<div class="col-2 mb-3">
+								<div class="col-6 col-md-4 col-lg-2 mb-3">
 									<a href="#" class="book-wrap h-100">
-										<span class="d-block mb-2"><img src='{{ $value->img_path }}' alt='イメージ'></span>
+										<span class="d-block mb-2">
+											@if( !empty( @$value->img_path ))
+												<img src='{{ $value->img_path }}' alt='{{ $value->title }}'>
+											@else
+												<img src="{{ asset('images/no_image.jpg') }}" alt='画像がありません'>
+											@endif
+										</span>
 										<span class="d-block book-title mb-2">{{ $value->title }}</span>
 										<span class="d-block">
 											@if ( $value->evaluation )

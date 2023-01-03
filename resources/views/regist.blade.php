@@ -1,18 +1,3 @@
-<?php
-echo "<pre>";
-$a = "<div>";
-$a .= 	"<h1>" . "test" . "</h1>";
-$a .= "</div>";
-echo "</pre>";
-
-
-echo "<code>";
-echo "<pre>";
-echo htmlentities(@$tasks->detail);
-echo "</pre>";
-echo "</code>";
-
-?>
 <x-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -115,7 +100,7 @@ echo "</code>";
 									)}}
 								</div>
 							</div>
-							<img src="/storage/{{@$tasks->img_path}}" alt="">
+							<img class="task-img mb-4" src="/storage/{{@$tasks->img_path}}" alt="">
 							<!--/タスクの画像-->
 
 							<!--タスク備考-->

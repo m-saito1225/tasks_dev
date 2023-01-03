@@ -16,30 +16,16 @@ class TopsController extends Controller
 	public function index()
 	{
 		/*----------------------------*/
-		//今日のタスクと完了したタスク
+		//今日のタスク
 		/*----------------------------*/
 		$today_task = DB::table('tasks')
 		->join( 'categories' , 'tasks.category' , '=' , 'categories.id' )
 		->where([
-			[ 'tasks.user_id'		, '=' , Auth::user()->id			] ,
-			[ 'tasks.updated_at'	, '>=' , \Carbon\Carbon::today()	] ,
-
+			[ 'tasks.user_id'	, '=' 	, Auth::user()->id				] ,
+			['tasks.status'		, '=' 	, TaskConsts::TASK_PROGRESS		]
 		])
-		->whereBetween( 'tasks.status' , [ TaskConsts::TASK_PROGRESS , TaskConsts::TASK_COMPLETED ] )
 		//idカラム名の重複回避のため名前だけ取得
 		->get([ 'tasks.*' , 'categories.category_name']);
-
-		/*----------------------------*/
-		//対応中
-		/*----------------------------*/
-		// $tasks2 = DB::table('tasks')
-		// ->join('categories', 'tasks.category', '=', 'categories.id')
-		// ->where([
-		// 	[ 'tasks.user_id'	, '='	, Auth::user()->id			] ,
-		// 	[ 'tasks.status'	, '='	, TaskConsts::TASK_PROGRESS	]
-		// ])
-		// //idカラム名の重複回避のため名前だけ取得
-		// ->get([ 'tasks.*' , 'categories.category_name' ]);
 
 		/*----------------------------*/
 		//未対応
@@ -71,23 +57,22 @@ class TopsController extends Controller
 		$tasks 		= array( 
 			$task_status_list_flip[2] => $today_task	, 
 			$task_status_list_flip[1] => $tasks3		, 
-			$task_status_list_flip[4] => $tasks4		)
+			$task_status_list_flip[3] => $tasks4		)
 		;
 
 		$tasks_fin_count = DB::table('tasks')
 		->join('categories', 'tasks.category', '=', 'categories.id')
 		->where([
 			[ 'tasks.user_id'	, '=' , Auth::user()->id			] ,
-			[ 'tasks.limit'		, '=' , \Carbon\Carbon::today()		] ,
 			[ 'tasks.status'	, '=' , TaskConsts::TASK_COMPLETED	]
 		])
 		//idカラム名の重複回避のため名前だけ取得
 		->get(['tasks.*', 'categories.category_name']);
 
-		//カウント用
+		//やることリストのカウント
 		$tasks_day_count = count($today_task);
 		$tasks_fin_count = count($tasks_fin_count);
-
+		$tasks_day_count = $tasks_day_count + $tasks_fin_count;
 		// dd($today_task);
 
 		//カテゴリーテーブルの情報取得
@@ -216,7 +201,7 @@ class TopsController extends Controller
 			$task = Task::find($task_id);
 			//ステータスを更新
 			$task->status 		= $request->task_status ;
-			$task->updated_at 	= \Carbon\Carbon::now()	 ;
+			$task->updated_at 	= \Carbon\Carbon::now()	;
 			//セーブ
 			$task->save();
 		}

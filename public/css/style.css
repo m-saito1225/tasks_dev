@@ -248,3 +248,26 @@ main {
  .star-color {
 	color: #DDD797;
  }
+
+
+
+
+ /*------------------------*/
+ /* responsive */
+ /*------------------------*/
+
+ @media screen and (max-width: 768px) {
+
+	.flex-item-3 {
+		width: calc(50% - 6px);
+	}
+
+	.inner {
+		width: 100%;
+	}
+
+}
+
+
+
+
