@@ -6,7 +6,7 @@ class BookConsts
 	// タスクステータス
 	public const VERYBAD	= 1	;
 	public const BAD    	= 2	;
-	public const NORMAL		= 3 ;
+	public const NORMAL 	= 3 ;
 	public const GOOD   	= 4 ;
 	public const VERYGOOD	= 5 ;
 	
