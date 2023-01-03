@@ -18,7 +18,11 @@ class BooksController extends Controller
 	{
 		//1ページの最大出力数
 		$max_posts = 6;
-		$books = DB::table('books')->orderByDesc( 'created_at' , 'updeted_at' )->paginate( $max_posts );
+		$books = DB::table('books')
+		->where([
+			[ 'books.user_id' , '=' , Auth::user()->id ] ,
+		])
+		->orderByDesc( 'created_at' , 'updeted_at' )->paginate( $max_posts );
 		return view('bookarchive')->with([
 			'books'	=> $books,
 		]);
