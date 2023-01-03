@@ -1,3 +1,4 @@
+#無視するディレクトリとファイル
 /node_modules
 /public/hot
 /public/storage
@@ -12,9 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-
-
-#configディレクトリを無視する
 config/
 .gitignore
 .editorconfig
