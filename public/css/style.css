@@ -189,13 +189,13 @@ main {
 }
 
 .change-task-status select:hover {
- 	cursor: pointer;
+	cursor: pointer;
 }
 
 .del-task span::before {
- 	font-family: "Font Awesome 5 Free";
- 	font-weight: 900;
- 	content: "\f1f8";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f1f8";
 }
 
 .no-wrap {
@@ -224,39 +224,39 @@ main {
 
 .btn-send {
 	background: var(--green);
- }
+}
 
- .task-calendar {
+.task-calendar {
 	width: 142px;
- }
+}
 
  .book-wrap {
 	background: #fff;
 	border-radius: 3px;
 	padding: 10px;
 	display: block;
- }
+}
 
- .book-title {
- 	overflow: hidden;
- 	text-overflow: ellipsis;
- 	white-space: nowrap;
+.book-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	font-size: 12px;
 	font-weight: bold;
- }
+}
 
- .star-color {
+.star-color {
 	color: #DDD797;
- }
+}
 
 
 
 
- /*------------------------*/
- /* responsive */
- /*------------------------*/
+/*------------------------*/
+/* responsive */
+/*------------------------*/
 
- @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
 	.flex-item-3 {
 		width: calc(50% - 6px);

@@ -12,9 +12,9 @@ class BookConsts
 	
 	public const BOOK_STATUS_LIST = [
 		"とてもいい"	=> self::VERYGOOD	,
-		"良い"			=> self::GOOD		,
-		"普通"			=> self::NORMAL		,
-		"悪い"			=> self::BAD		,
+		"良い"		=> self::GOOD		,
+		"普通"		=> self::NORMAL		,
+		"悪い"		=> self::BAD		,
 		"とても悪い"	=> self::VERYBAD	,
 	];
 }
